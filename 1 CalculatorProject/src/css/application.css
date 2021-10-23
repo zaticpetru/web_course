@@ -1,0 +1,162 @@
+:root {
+    --main-dark-color: #1f2c1d;
+    --main-dark-accent-color: #638576;
+    --main-light-accent-color: #B0B6BA;
+    --main-pale-accent-color: #CBCFD1;
+    --main-accent-color: #FFD639;
+
+    --main-text-color: #ffffff;
+    --secondary-text-color: #FFD639;
+    
+    --main-border-radius: 0.225rem;
+}
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+
+    background: var(--main-pale-accent-color);
+
+    min-height: 100wh;
+    max-width: 1100px;
+    margin: auto;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.125rem;
+
+    color: var(--main-text-color);
+}
+
+nav {
+    border: solid 0.125rem;
+    border-color: var(--main-dark-color);
+    border-radius: var(--main-border-radius);
+
+    margin: 2rem;
+    padding: 1rem;
+
+    display: flex;
+    justify-content: center;
+
+    background-color: var(--main-dark-accent-color);
+}
+
+nav a {
+    margin: 0.625rem;
+    padding: 0.125rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover,
+/* a:focus, */
+a.active {
+    border-bottom: solid 0.125rem;
+    border-color: var(--main-accent-color);
+}
+
+header {
+    border-radius: var(--main-border-radius);
+
+    height: 150px;
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.flower_bg {
+    background-image: url(/src/assets/flower.jpg);
+    background-position: 50% 35%;
+    border-bottom: solid 0.225rem;
+    border-top: solid 0.125rem;
+    border-color: var(--main-accent-color);
+}
+
+header h1 {
+    color: var(--secondary-text-color);
+    backdrop-filter: blur(10px);
+    
+    text-align: center;
+    margin: 2rem;
+}
+
+main {
+    border-radius: var(--main-border-radius);
+    border-bottom: solid 0.125rem;
+    border-color: var(--main-accent-color);
+    
+    min-height: 10vh;
+    margin: 0 2rem;
+
+    padding: 1.125rem 0;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--main-dark-color);
+
+    margin: 0 2rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* width: 95%; */
+
+    border: solid 0.125rem;
+    border-color: var(--main-dark-accent-color);
+    border-radius: var(--main-border-radius);
+
+    /* background-color: rgba(99, 133, 118, 80%); */
+    background-color: var(--main-dark-accent-color);
+
+    margin: 1rem 0;
+
+    padding: 1rem;
+}
+
+button {
+    font-size: inherit;
+    font-family: inherit;
+    background-color: inherit;
+    border-radius: var(--main-border-radius);
+}
+
+.calc-btn {
+    background-color: white;
+    height: 30px;
+    width: 30px;
+    margin: 0.125rem;
+}
+
+.calc-btn:hover {
+    border-color: var(--main-accent-color);
+}
+
+#calc .screen {
+    background-color: var(--main-dark-color);
+    margin: 0.325rem 0.125rem;
+    text-align: right;
+}

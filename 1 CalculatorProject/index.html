@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculators</title>
+
+    <script type="text/javascript" src="/src/js/application.js"></script>
+    <link rel="stylesheet" href="/src/css/application.css"></link>
+
+    <style>
+
+    </style>
+
+
+</head>
+
+<body>
+    <nav>
+        <a href="/" class="active">Home</a>
+        <a href="/src/pages/about.html">About</a>
+        <a href="/">Generic page</a>
+        <a href="/">Contacts</a>
+    </nav>
+
+    <header class="flower_bg">
+        <h1>Everything you need to calculate something</h1>
+    </header>
+
+    <main>
+        <article class="card">
+            <p>
+                An electronic calculator is typically a portable electronic device used to perform calculations, ranging from basic arithmetic to complex mathematics.
+            </p>
+            <p>
+                The first solid-state electronic calculator was created in the early 1960s. Pocket-sized devices became available in the 1970s, especially after the Intel 4004, the first microprocessor, was developed by Intel for the Japanese calculator company Busicom. They later became used commonly within the petroleum industry (oil and gas).
+            </p>
+            <p>
+                Modern electronic calculators vary from cheap, give-away, credit-card-sized models to sturdy desktop models with built-in printers. They became popular in the mid-1970s as the incorporation of integrated circuits reduced their size and cost. By the end of that decade, prices had dropped to the point where a basic calculator was affordable to most and they became common in schools.
+            </p>
+        </article>
+
+        <div class="card">
+            <div id="calc">
+                <div class="screen">
+                    22
+                </div>
+                <div class="row">
+                    <button class="calc-btn number">7</button>
+                    <button class="calc-btn number">8</button>
+                    <button class="calc-btn number">9</button>
+                </div>
+                <div class="row">
+                    <button class="calc-btn number">4</button>
+                    <button class="calc-btn number">5</button>
+                    <button class="calc-btn number">6</button>
+                </div>
+                <div class="row">
+                    <button class="calc-btn number">1</button>
+                    <button class="calc-btn number">2</button>
+                    <button class="calc-btn number">3</button>
+                </div>
+                <div class="row">
+                    <button class="calc-btn operation">+</button>
+                    <button class="calc-btn number">0</button>
+                    <button class="calc-btn operation">=</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>footer</p>
+    </footer>
+    
+    <script>
+        var numbers = document.querySelectorAll(".number");
+        var operations = document.querySelectorAll(".operation");
+
+        var screen = document.querySelector(".screen");
+
+        numbers.forEach(number => {
+            number.addEventListener('click', (event) => {
+                var value = event.target.innerText;
+                console.log(value);
+                // TODO
+                screen.innerText = value;
+            })
+        });
+
+        operations.forEach(operation => {
+            operation.addEventListener('click', (event) => {
+                var value = event.target.innerText;
+                console.log(value);
+                // TODO
+            })
+        });
+    </script>
+</body>
+
+</html>
