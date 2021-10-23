@@ -45,7 +45,7 @@
         <div class="card">
             <div id="calc">
                 <div class="screen">
-                    22
+                    0
                 </div>
                 <div class="row">
                     <button class="calc-btn number">7</button>
@@ -67,6 +67,11 @@
                     <button class="calc-btn number">0</button>
                     <button class="calc-btn operation">=</button>
                 </div>
+                <div class="row">
+                    <button class="calc-btn operation">-</button>
+                    <button class="calc-btn operation">*</button>
+                    <button class="calc-btn operation">C</button>
+                </div>
             </div>
         </div>
 
@@ -82,20 +87,69 @@
 
         var screen = document.querySelector(".screen");
 
+        var result = 0;
+        var previousNumber = 0;
+        var currentNumber = 0;
+        var lastOperation = "";
+        var equalsLoop = false;
+
         numbers.forEach(number => {
             number.addEventListener('click', (event) => {
-                var value = event.target.innerText;
-                console.log(value);
-                // TODO
-                screen.innerText = value;
+                var value = parseInt(event.target.innerText);
+                currentNumber = parseInt(screen.innerText);
+                
+                if(value == 0 && currentNumber == 0) {
+                    return;
+                }
+
+                if(currentNumber == 0) {
+                    screen.innerText = value;
+                } else {
+                    screen.innerText += value;
+                }
             })
         });
 
         operations.forEach(operation => {
             operation.addEventListener('click', (event) => {
                 var value = event.target.innerText;
-                console.log(value);
-                // TODO
+                if(equalsLoop) {
+                    previousNumber = result;
+                } else {
+                    currentNumber = parseInt(screen.innerText);
+                }
+
+                if(value == "="){
+                    switch(lastOperation) {
+                        case "": 
+                            result = currentNumber;
+                            break;
+                        case "+":
+                            result = previousNumber + currentNumber;
+                            break;
+                        case "-":
+                            result = previousNumber - currentNumber;
+                            break;
+                        case "*":
+                            result = previousNumber * currentNumber;
+                            break;
+                    }
+                    screen.innerText = result;
+                    equalsLoop = true;
+
+                } else if(value == "C"){
+                    lastOperation = "";
+                    result = 0;
+                    screen.innerText = 0;
+                    previousNumber = 0;
+                    equalsLoop = false;
+                } else {
+                    currentNumber = parseInt(screen.innerText);
+                    lastOperation = value;
+                    previousNumber = currentNumber;
+                    screen.innerText = 0;
+                    equalsLoop = false;
+                }
             })
         });
     </script>
